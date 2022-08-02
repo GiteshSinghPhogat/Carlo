@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+
+<center><h1 class="text-light">All Cars</h1></center>
+<div class="mb-3">
+    <a class="btn btn-primary" href="/cars/new">Add Car</a>
+</div>
+<% for (let car of cars){%>
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid mt-2 ml-2 mr-2 mb-2" alt="" src="<%=car.images[0].url%>" width="300" height="300" >
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= car.title %> </h5>
+                <!-- <p class="card-text"><%= car.description %></p> -->
+                <p class="card-text">
+                    <small class="text-muted"><%= car.location%></small>
+                </p>
+                <a class="btn btn-primary" href="/cars/<%=car._id%>">View <%=car.title%></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>
